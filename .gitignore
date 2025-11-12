@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+*.egg-info/
+dist/
+build/
+__pycache__/
+*.pyc
+.Python
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE and editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+.coverage
+coverage/
+htmlcov/
+.pytest_cache/
+
+# Build artifacts
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Python virtual environments
+venv/
+env/
+ENV/
