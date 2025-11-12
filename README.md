@@ -144,6 +144,24 @@ To begin using MindMarionette for your QA automation needs, ensure you have the 
 - Playwright browsers
 - Python 3.8+ (for AI agent components)
 
+### Quick Start
+
+```bash
+# Install the package
+pip install -e .
+
+# Run the comprehensive demo
+python examples/comprehensive_demo.py
+```
+
+The demo will showcase the visual testing agent capabilities, create sample baselines, run regression tests, and generate comprehensive HTML and JSON reports.
+
+### Documentation
+
+- **Visual Testing Agent**: See [README_VISUAL_AGENT.md](README_VISUAL_AGENT.md) for detailed documentation
+- **Comprehensive Demo**: Check [examples/DEMO_README.md](examples/DEMO_README.md) for demo usage and customization
+- **Simple Example**: Review [examples/visual_agent_example.py](examples/visual_agent_example.py) for basic usage
+
 Refer to the project documentation for detailed setup instructions, configuration options, and usage examples specific to your testing requirements.
 
 ## Contributing
