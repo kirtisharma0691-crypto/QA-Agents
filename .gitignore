@@ -45,3 +45,6 @@ temp/
 venv/
 env/
 ENV/
+
+# Visual artifacts generated during runs
+visual_artifacts/
