@@ -1,0 +1,60 @@
+{
+  "visual_findings": [
+    {
+      "agent": "visual-qa-agent",
+      "screen_id": "homepage_header",
+      "status": "pass",
+      "diff_ratio": 0.0,
+      "sensitivity": 0.05,
+      "screenshot": "/home/engine/project/examples/demo_visual_artifacts/homepage_header_diff_eaf26c09ba814e04b0019b62f56a3911.txt",
+      "remediation_suggestions": [
+        "Visual comparison within sensitivity threshold."
+      ]
+    },
+    {
+      "agent": "visual-qa-agent",
+      "screen_id": "login_form",
+      "status": "pass",
+      "diff_ratio": 0.00020588235294117648,
+      "sensitivity": 0.05,
+      "screenshot": "/home/engine/project/examples/demo_visual_artifacts/login_form_diff_ecb0786cffec4427921b2035161dcffa.txt",
+      "remediation_suggestions": [
+        "Visual comparison within sensitivity threshold."
+      ]
+    },
+    {
+      "agent": "visual-qa-agent",
+      "screen_id": "dashboard",
+      "status": "fail",
+      "diff_ratio": 0.06268382352941176,
+      "sensitivity": 0.05,
+      "screenshot": "/home/engine/project/examples/demo_visual_artifacts/dashboard_diff_11bb8fb55d2c457ab1919f6fb510d28f.txt",
+      "remediation_suggestions": [
+        "Visual deviation of 0.063 exceeds sensitivity 0.050. Review UI changes.",
+        "Consider updating baseline if the change is expected."
+      ]
+    },
+    {
+      "agent": "visual-qa-agent",
+      "screen_id": "product_grid",
+      "status": "pass",
+      "diff_ratio": 0.030210602759622368,
+      "sensitivity": 0.05,
+      "screenshot": "/home/engine/project/examples/demo_visual_artifacts/product_grid_diff_115f358341d544fe897ae2ef37e2c571.txt",
+      "remediation_suggestions": [
+        "Visual comparison within sensitivity threshold."
+      ]
+    },
+    {
+      "agent": "visual-qa-agent",
+      "screen_id": "settings_page",
+      "status": "pass",
+      "diff_ratio": 0.0008896358543417367,
+      "sensitivity": 0.15,
+      "screenshot": "/home/engine/project/examples/demo_visual_artifacts/settings_page_diff_4df7eb246d6e4a9fb079c08491aa4651.txt",
+      "remediation_suggestions": [
+        "Visual comparison within sensitivity threshold."
+      ]
+    }
+  ]
+}

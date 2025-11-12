@@ -48,3 +48,5 @@ ENV/
 
 # Visual artifacts generated during runs
 visual_artifacts/
+examples/demo_visual_artifacts/
+examples/demo_sample_output/

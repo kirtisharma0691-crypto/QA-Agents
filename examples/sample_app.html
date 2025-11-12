@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Application - MindMarionette Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .nav a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Login Form */
+        .login-section {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .login-section h2 {
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #5568d3;
+        }
+        
+        /* Dashboard */
+        .dashboard {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .dashboard-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .dashboard-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .dashboard-card .metric {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+        
+        /* Product Grid */
+        .products {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .product-price {
+            color: #667eea;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        /* Settings */
+        .settings {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        .settings-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .settings-section h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .setting-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .setting-item:last-child {
+            border-bottom: none;
+        }
+        
+        .setting-item label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .toggle {
+            width: 50px;
+            height: 24px;
+            background: #ddd;
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .toggle.active {
+            background: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="homepage-header">
+        <div class="header-content">
+            <div class="logo">🎭 Sample App</div>
+            <nav class="nav">
+                <a href="#home">Home</a>
+                <a href="#dashboard">Dashboard</a>
+                <a href="#products">Products</a>
+                <a href="#settings">Settings</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Login Form -->
+    <section class="login-section" id="login-form">
+        <h2>Login</h2>
+        <form>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter your username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+            <button type="submit" class="btn">Sign In</button>
+        </form>
+    </section>
+    
+    <!-- Dashboard -->
+    <section class="dashboard" id="dashboard">
+        <h2>Dashboard</h2>
+        <div class="dashboard-grid">
+            <div class="dashboard-card">
+                <h3>Total Users</h3>
+                <div class="metric">1,234</div>
+                <p>Active this month</p>
+            </div>
+            <div class="dashboard-card">
+                <h3>Revenue</h3>
+                <div class="metric">$45.2K</div>
+                <p>This quarter</p>
+            </div>
+            <div class="dashboard-card">
+                <h3>Tests Passed</h3>
+                <div class="metric">98.5%</div>
+                <p>Success rate</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Products -->
+    <section class="products" id="products">
+        <h2>Products</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-title">Product 1</div>
+                    <div class="product-price">$29.99</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-title">Product 2</div>
+                    <div class="product-price">$39.99</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-title">Product 3</div>
+                    <div class="product-price">$49.99</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-title">Product 4</div>
+                    <div class="product-price">$59.99</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-title">Product 5</div>
+                    <div class="product-price">$69.99</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-title">Product 6</div>
+                    <div class="product-price">$79.99</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Settings -->
+    <section class="settings" id="settings">
+        <h2>Settings</h2>
+        <div class="settings-section">
+            <h3>Notifications</h3>
+            <div class="setting-item">
+                <label>
+                    <span>Email notifications</span>
+                    <div class="toggle active"></div>
+                </label>
+            </div>
+            <div class="setting-item">
+                <label>
+                    <span>Push notifications</span>
+                    <div class="toggle"></div>
+                </label>
+            </div>
+        </div>
+        
+        <div class="settings-section">
+            <h3>Privacy</h3>
+            <div class="setting-item">
+                <label>
+                    <span>Share analytics data</span>
+                    <div class="toggle active"></div>
+                </label>
+            </div>
+            <div class="setting-item">
+                <label>
+                    <span>Allow marketing emails</span>
+                    <div class="toggle"></div>
+                </label>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
